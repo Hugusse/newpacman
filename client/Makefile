@@ -4,9 +4,9 @@ LDFLAGS = -L/mingw64/lib -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_ttf -lSDL_g
 TARGET = pacmen
 SRCDIR = src
 OUTDIR = output
-SOURCES = $(wildcard ./$(SRCDIR)/*.c)
+SOURCES = $(wildcard $(SRCDIR)/*.c)
 
-.PHONY: all clean debug
+.PHONY: all clean run
 
 all: $(OUTDIR)/$(TARGET)
 
@@ -19,6 +19,3 @@ run: all
 
 clean:
 	rm -f $(OUTDIR)/$(TARGET)
-
-debug: CFLAGS += -DDEBUG
-debug: $(OUTDIR)/$(TARGET)
