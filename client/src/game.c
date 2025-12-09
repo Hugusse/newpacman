@@ -60,7 +60,18 @@ int game_view(SDL_Surface *screen, GameConfig *config, ProgramState *state, cons
         }
 
         // --- B. LOGIQUE DE MOUVEMENT ---
-        if (is_aligned(pacman.x, config->tile_size) && is_aligned(pacman.y, config->tile_size)) {
+        
+        // Vérifier si c'est une inversion (virage à 180°)
+        int is_reversal = (pacman.next_dx != 0 && pacman.next_dx == -pacman.dx) ||
+                         (pacman.next_dy != 0 && pacman.next_dy == -pacman.dy);
+        
+        // Si c'est une inversion, on change immédiatement sans attendre l'alignement
+        if (is_reversal && (pacman.next_dx != 0 || pacman.next_dy != 0)) {
+            pacman.dx = pacman.next_dx;
+            pacman.dy = pacman.next_dy;
+        }
+        // Sinon, on attend d'être aligné pour tourner
+        else if (is_aligned(pacman.x, config->tile_size) && is_aligned(pacman.y, config->tile_size)) {
             int grid_x = pacman.x / config->tile_size;
             int grid_y = pacman.y / config->tile_size;
 
