@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include "render.h"
-#include "config.h"
+#include "../include/render.h"
 
 SDL_Surface* init_sdl(GameConfig *config) {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {

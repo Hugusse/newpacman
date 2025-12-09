@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include <SDL/SDL.h>
-#include "config.h"
-#include "map.h"
-#include "render.h"
+#include "../include/global.h"
+#include "../include/config.h"
+#include "../include/map.h"
+#include "../include/render.h"
 
 int main(int argc, char *argv[]) {
     printf("=== Pacman - Test Etapes 1 & 2 ===\n\n");

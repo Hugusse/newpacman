@@ -1,7 +1,7 @@
 #ifndef RENDER_H
 #define RENDER_H
 
-#include <SDL/SDL.h>
+#include "global.h"
 #include "map.h"
 #include "config.h"
 

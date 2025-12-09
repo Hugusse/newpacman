@@ -1,6 +1,8 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#include "global.h"
+
 // Configuration générale du jeu
 typedef struct {
     int screen_width;

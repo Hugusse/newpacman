@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "map.h"
+#include "../include/map.h"
 
 Map* create_map(int width, int height) {
     Map *map = (Map*)malloc(sizeof(Map));
