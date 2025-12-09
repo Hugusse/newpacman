@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -g -O2 -std=c99 -Iinclude -I/mingw64/include/SDL
+CFLAGS = -Wall -Wextra -g -O2 -std=c99 -Iinclude -I/mingw64/include/SDL -I/mingw64/include
 LDFLAGS = -L/mingw64/lib -lmingw32 -lSDLmain -lSDL -lSDL_image -lSDL_ttf -lSDL_gfx -lSDL_mixer -mwindows -lm
 TARGET = pacmen
 SRCDIR = src
