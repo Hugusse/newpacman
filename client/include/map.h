@@ -43,4 +43,10 @@ void set_tile(Map *map, int x, int y, TileType type);
 // Afficher la map en mode texte (debug)
 void print_map(Map *map);
 
+// Vérifier si une case est un mur
+int is_wall(Map *map, int grid_x, int grid_y);
+
+// Vérifie si le joueur est parfaitement aligné sur la grille
+int is_aligned(int pos, int tile_size);
+
 #endif

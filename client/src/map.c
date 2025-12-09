@@ -55,10 +55,21 @@ Map* load_map(const char *filename) {
     Map *map = create_map(width, height);
     int ghost_count = 0;
     int row = 0;
+    int in_grid = 0;  // Flag pour savoir si on lit la grille
 
     // Lire la grille
     while (fgets(line, sizeof(line), file) && row < height) {
-        if (line[0] == '#') continue; // Ignorer les commentaires
+        // Si la ligne commence par '#' et on n'a pas encore commencé la grille, c'est un commentaire
+        if (line[0] == '#' && !in_grid && (line[1] == ' ' || line[1] == '\n' || line[1] == '\r')) {
+            continue; // Ignorer les commentaires
+        }
+        
+        // Si on trouve une ligne qui commence par '#' mais c'est la grille (pleine de #)
+        if (line[0] == '#' || line[0] == '.') {
+            in_grid = 1;  // On est dans la grille maintenant
+        }
+        
+        if (!in_grid) continue;  // Ignorer tout avant la grille
         
         int len = strlen(line);
         for (int col = 0; col < len && col < width; col++) {
@@ -106,8 +117,29 @@ Map* load_map(const char *filename) {
     fclose(file);
     printf("Map chargée: %dx%d, %d pac-gommes, %d fantômes\n", 
            width, height, map->total_dots, ghost_count);
+    
+    // Debug: afficher la map en console
+    #ifdef DEBUG
+    print_map(map);
+    #endif
+    
     return map;
 }
+
+
+int is_wall(Map *map, int grid_x, int grid_y) {
+    // Si on est hors de la map, c'est comme un mur
+    if (grid_x < 0 || grid_x >= map->width || grid_y < 0 || grid_y >= map->height)
+        return 1;
+    return get_tile(map, grid_x, grid_y) == TILE_WALL;
+}
+
+// Vérifie si le joueur est parfaitement aligné sur la grille (nécessaire pour tourner)
+int is_aligned(int pos, int tile_size) {
+    return (pos % tile_size) == 0;
+}
+
+
 
 void free_map(Map *map) {
     if (!map) return;
