@@ -1,14 +1,7 @@
 .vscode/*
 
-code/output/save/*
-code/output/defaultconf/*
-code/output/assets/*
-!code/output/assets/README.md
-
 # Nom de l'executable sans extension et avec
-client/output/oceandepth*
-tmp/output/oceandepth*
-tmp/output/save/*
+client/output/pacmen*
 
 # Prerequisites
 *.d
@@ -21,7 +14,7 @@ tmp/output/save/*
 
 # Linker output
 *.ilk
-*.map
+# *.map
 *.exp
 
 # Precompiled Headers
