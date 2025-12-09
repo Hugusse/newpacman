@@ -1,6 +1,8 @@
 #ifndef MAP_H
 #define MAP_H
 
+#include "global.h"
+
 // Types de cases
 typedef enum {
     TILE_EMPTY,

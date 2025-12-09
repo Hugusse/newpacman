@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "config.h"
+#include "../include/config.h"
 
 // Fonction utilitaire pour enlever les espaces
 void trim(char *str) {
