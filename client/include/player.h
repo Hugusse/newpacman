@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "global.h"
 
 typedef struct {
     int x, y;             // Position précise en pixels
