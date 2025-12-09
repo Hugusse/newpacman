@@ -2,6 +2,7 @@
 
 # Nom de l'executable sans extension et avec
 client/output/pacmen*
+client/output/std*
 
 # Prerequisites
 *.d
